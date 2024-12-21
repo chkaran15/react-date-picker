@@ -5,19 +5,22 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-	{ ignores: ['dist'] },
+	// Base configuration for all files
 	{
-		extends: [
-			js.configs.recommended,
-			...tseslint.configs.recommended,
-			'plugin:react/recommended',
-			'airbnb',
-			'prettier',
+		ignores: [
+			'**/node_modules/**',
+			'**/dist/**',
+			'**/build/**',
+			'package.json',
 		],
-		files: ['**/*.{ts,tsx}'],
+		extends: [js.configs.recommended],
+		files: ['**/*.{js,jsx,ts,tsx}'],
 		languageOptions: {
 			ecmaVersion: 2020,
-			globals: globals.browser,
+			globals: {
+				...globals.browser,
+				React: 'readonly',
+			},
 		},
 		plugins: {
 			'react-hooks': reactHooks,
@@ -29,6 +32,30 @@ export default tseslint.config(
 				'warn',
 				{ allowConstantExport: true },
 			],
+		},
+	},
+	// TypeScript-specific configuration
+	{
+		files: ['src/**/*.{ts,tsx}'],
+		extends: [...tseslint.configs.recommended],
+		languageOptions: {
+			parser: tseslint.parser,
+			parserOptions: {
+				project: ['./tsconfig.app.json'],
+				tsconfigRootDir: import.meta.dirname,
+			},
+		},
+	},
+	// Node TypeScript configuration
+	{
+		files: ['*.config.ts'],
+		extends: [...tseslint.configs.recommended],
+		languageOptions: {
+			parser: tseslint.parser,
+			parserOptions: {
+				project: ['./tsconfig.node.json'],
+				tsconfigRootDir: import.meta.dirname,
+			},
 		},
 	}
 );
