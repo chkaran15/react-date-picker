@@ -1,14 +1,26 @@
 {
   "name": "date-picker-shadcn",
   "private": true,
+  "author": {
+    "version": "0.0.1",
+    "name": "karan Chaudhary",
+    "email": "kchaudhary098@gmail.com"
+  },
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --fix --max-warnings=0",
+    "lint:fix": "eslint --fix .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0 ."
+    ]
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.1.4",
