@@ -18,8 +18,7 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx}": [
-			"eslint --fix",
-			"prettier --write"
+			"pnpm run lint && format && build"
 		],
 		"*.{html,css,json,md}": [
 			"prettier --write"
