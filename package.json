@@ -10,7 +10,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite --port 4446",
-		"build": "tsc -b && vite build && eslint --fix",
+		"build": "tsc -b && vite build",
 		"lint": "eslint --fix",
 		"preview": "vite preview",
 		"prepare": "husky"
