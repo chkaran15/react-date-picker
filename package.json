@@ -13,14 +13,12 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint --fix",
 		"preview": "vite preview",
-		"prepare": "husky"
+		"prepare": "husky",
+		"lint-run": "tsc -b && eslint --fix && vite build"
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx}": [
-			"pnpm run build",
-			"pnpm run lint"
-		],
-		"*.{html,css,json,md}": [
+			"eslint --fix",
 			"prettier --write"
 		]
 	},
