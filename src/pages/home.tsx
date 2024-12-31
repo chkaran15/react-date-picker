@@ -5,7 +5,7 @@ const HomePage = () => {
 	const [date1, setDate1] = useState(new Date());
 	return (
 		<div className="w-full flex justify-center items-center flex-col gap-2 h-screen">
-			<h1>React Date Picker with Shadcn</h1>
+			<h1>React Date Picker with Shadcn new changes</h1>
 			<InputDatePicker />
 			Date max is current date minmum is 1900-01-01
 			<input
