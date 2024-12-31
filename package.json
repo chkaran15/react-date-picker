@@ -17,7 +17,8 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx}": [
-			"pnpm run build && pnpm run lint"
+			"pnpm run build",
+			"pnpm run lint"
 		],
 		"*.{html,css,json,md}": [
 			"prettier --write"
