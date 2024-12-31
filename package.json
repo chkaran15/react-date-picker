@@ -17,7 +17,7 @@
 		"lint-run": "tsc -b && eslint --fix && vite build"
 	},
 	"lint-staged": {
-		"*.{ts,tsx,js,jsx}": [
+		"*.{ts,tsx,js,jsx,html,css,json,md}": [
 			"eslint --fix",
 			"prettier --write"
 		]

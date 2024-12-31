@@ -1,2 +1,3 @@
-pnpm run build
 npx lint-staged
+
+pnpm run build
