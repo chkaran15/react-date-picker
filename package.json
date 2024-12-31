@@ -9,16 +9,15 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"dev": "vite --port 4446",
+		"build": "tsc -b && vite build && eslint --fix",
 		"lint": "eslint --fix",
-		"format": "prettier --write",
 		"preview": "vite preview",
 		"prepare": "husky"
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx}": [
-			"pnpm run lint && format && build"
+			"pnpm run build"
 		],
 		"*.{html,css,json,md}": [
 			"prettier --write"
